@@ -1,0 +1,68 @@
+@import url(http://fonts.googleapis.com/css?family=Coustard);
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
+body {
+	background-color: #e7e7ec;
+	font-family: Coustard, Helvetica, sans-serif;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+div#main {
+	background-color: white;
+	height: 85%;
+	width: 85%;
+	padding: 5px;
+	display: block;
+	margin-top: 25px;
+	min-width: 650px;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 10px;
+	box-shadow: 5px 5px 5px #777;
+}
+
+div#logo > img {
+	display: block;
+	margin-top: 25px;
+	padding-top: 10px;
+	vertical-align: top;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+h1 {
+	font-family: Pacifico;
+}
+
+p {
+	text-align: left;
+	padding: 0 100px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+fieldset {
+	width: 350px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 15px;
+	background-color: #ddfdfc;
+	border-radius: 10px;
+}
+
+legend {
+	text-align: center;
+	font-family: Pacifico;
+	background-color: white;
+	border-radius: 5px;
+}
+
+div#custom legend {
+	background-color: #ddfdfc;
+}
+
+div#custom legend:first-child {
+	background-color: white;
+}
