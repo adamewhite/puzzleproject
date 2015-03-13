@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf+8">
 <title>Puzzler</title>
-<link rel="stylesheet" href="css/styles.css" type="text/css">
+<link rel="stylesheet" href="styles.css" type="text/css">
 <script src="main.js"></script>
 </head>
 
 <body>
 	<div id="main">
 		<div id="logo">
-			<img src="images/sample-logo-black.png" alt="logo">
+			<img src="sample-logo-black.png" alt="logo">
 			<br>
 			<h1>Sample text, sampling the night away.</h1>
-			<p>Persto lucidus nonummy damnum. Pertineo odio huic enim hendrerit tamen luctus. Ratis tego nisl. Mauris paratus iusto vulputate tation si huic iriure valetudo aliquip. Vero fere mara dolore fere. Modo sagaciter vel gemino nobis eu voco.</p>
+			<h3>Persto lucidus nonummy damnum. Pertineo odio huic enim hendrerit tamen luctus. Ratis tego nisl. Mauris paratus iusto vulputate tation si huic iriure valetudo aliquip. Vero fere mara dolore fere. Modo sagaciter vel gemino nobis eu voco.</h3>
 		</div>
 		<div id="difficulty">
 			<fieldset>
@@ -31,19 +31,24 @@
 		<div id="custom">
 			<fieldset>
 				<legend>Custom</legend>
-				<legend>Controls</legend>
+				<span class="title">Controls:</span>
+				<div class="menuOptions">
 				<label for="radio">Number Pad</label>
 				<input type="radio" name="controls" value="numberPad">
 				<label for="radio">Mouse</label>
-				<input type="radio" name="controls" value="mouse">
-				<legend>Speed</legend>
+				<input type="radio" name="controls" value="mouse"><br>
+				</div>
+				<span class="title">Speed:</span>
+				<div class="menuOptions">
 				<label for="radio">Slow</label>
 				<input type="radio" name="speed" value="slow">
 				<label for="radio">Medium</label>
 				<input type="radio" name="speed" value="medium">
 				<label for="radio">Fast</label>
-				<input type="radio" name="speed" value="fast">
-				<legend>Size</legend>
+				<input type="radio" name="speed" value="fast"><br>
+				</div>
+				<span class="title">Size:</span>
+				<div class="menuOptions">
 				<select name="size">
 					<option value="2 x 2">2 x 2</option>
 					<option value="2 x 3">2 x 3</option>
@@ -51,6 +56,7 @@
 					<option value="4 x 3">4 x 3</option>
 					<option value="4 x 4">4 x 4</option>
 				</select>
+				</div>
 			</fieldset>
 		</div>
 	</div>
