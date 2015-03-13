@@ -1,9 +1,9 @@
-@import url(http://fonts.googleapis.com/css?family=Coustard);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
 
 body {
 	background-color: #e7e7ec;
-	font-family: Coustard, Helvetica, sans-serif;
+	font-family: Roboto Condensed, Helvetica, sans-serif;
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto;
@@ -12,14 +12,14 @@ body {
 div#main {
 	background-color: white;
 	height: 85%;
-	width: 85%;
+	width: 75%;
 	padding: 5px;
 	display: block;
 	margin-top: 25px;
 	min-width: 650px;
 	margin-right: auto;
 	margin-left: auto;
-	border-radius: 10px;
+	border-radius: 15px;
 	box-shadow: 5px 5px 5px #777;
 }
 
@@ -36,7 +36,7 @@ h1 {
 	font-family: Pacifico;
 }
 
-p {
+h3 {
 	text-align: left;
 	padding: 0 100px;
 	margin-right: auto;
@@ -44,10 +44,10 @@ p {
 }
 
 fieldset {
-	width: 350px;
+	width: 475px;
 	margin-right: auto;
 	margin-left: auto;
-	margin-bottom: 15px;
+	margin-bottom: 25px;
 	background-color: #ddfdfc;
 	border-radius: 10px;
 }
@@ -59,10 +59,20 @@ legend {
 	border-radius: 5px;
 }
 
-div#custom legend {
-	background-color: #ddfdfc;
 }
 
 div#custom legend:first-child {
 	background-color: white;
+}
+
+.title {
+	float: left;
+	width: 160px;
+	text-align: right;
+}
+
+div.menuOptions {
+	float: right;
+	width: 290px;
+	text-align: left;
 }
