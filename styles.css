@@ -2,15 +2,14 @@
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
 
 body {
-	background-color: #e7e7ec;
+	background: #ff0000;
 	font-family: Roboto Condensed, Helvetica, sans-serif;
 	text-align: center;
-	margin-right: auto;
-	margin-left: auto;
+	margin: auto;
 }
 
 div#main {
-	background-color: white;
+	background-color: white; 
 	height: 85%;
 	width: 75%;
 	padding: 5px;
@@ -23,13 +22,8 @@ div#main {
 	box-shadow: 5px 5px 5px #777;
 }
 
-div#logo > img {
-	display: block;
+div#main>img {
 	margin-top: 25px;
-	padding-top: 10px;
-	vertical-align: top;
-	margin-right: auto;
-	margin-left: auto;
 }
 
 h1 {
@@ -48,7 +42,7 @@ fieldset {
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 25px;
-	background-color: #ddfdfc;
+	background-color: #00ffff;
 	border-radius: 10px;
 }
 
@@ -75,4 +69,60 @@ div.menuOptions {
 	float: right;
 	width: 290px;
 	text-align: left;
+}
+
+#catPic {
+	height: 200px;
+	width: 300px;
+	float: left;
+	margin-right: 15px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.button {
+	height: 25px;
+	width: 85px;
+	background-color: bisque;
+	border-radius: 10px;
+	font-family: Roboto Condensed;
+	float: right;
+	margin-right: 30px;
+	clear: right;
+}
+
+#tableContainer {
+	display: table;
+	border-spacing: 10px;
+	border-collapse: separate;
+} 
+
+#tableRow {
+	display: table-row;
+}
+
+#tableRow>div {
+	display: table-cell;
+}
+
+#tableRow>div:first-child {
+	width: 20%;
+	padding: 20px;
+	/*border: 1px solid red;*/
+	float: left;
+	vertical-align: top;
+}
+
+#tableRow>div:last-child {
+	width: 70%;
+	padding: 15px;
+	/*border: 1px dashed red;*/
+	vertical-align: top;
+	float: right;
+}
+
+#tableRow>div:last-child>img {
+	border: 3px solid black;
+	float: left;
+	box-shadow: 5px 5px 5px #777;
 }
