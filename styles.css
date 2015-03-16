@@ -1,6 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
 
+/** {
+	border: 1px dashed red;
+}*/
+
 body {
 	background: #ff0000;
 	font-family: Roboto Condensed, Helvetica, sans-serif;
@@ -11,7 +15,7 @@ body {
 div#main {
 	background-color: white; 
 	height: 85%;
-	width: 75%;
+	width: 800px;
 	padding: 5px;
 	display: block;
 	margin-top: 25px;
@@ -89,40 +93,32 @@ div.menuOptions {
 	float: right;
 	margin-right: 30px;
 	clear: right;
+	outline: none;
 }
 
-#tableContainer {
+.tableContainer {
 	display: table;
-	border-spacing: 10px;
-	border-collapse: separate;
 } 
 
-#tableRow {
+.tableRow {
 	display: table-row;
 }
 
-#tableRow>div {
+.tableRow>div {
 	display: table-cell;
 }
 
-#tableRow>div:first-child {
-	width: 20%;
-	padding: 20px;
-	/*border: 1px solid red;*/
-	float: left;
+.tile {
+	display: table-cell;
+	margin: 0;
+	padding: 0;
+}
+
+#gameConsole {
+	width: 350px;
 	vertical-align: top;
 }
 
-#tableRow>div:last-child {
-	width: 70%;
-	padding: 15px;
-	/*border: 1px dashed red;*/
-	vertical-align: top;
-	float: right;
-}
-
-#tableRow>div:last-child>img {
-	border: 3px solid black;
-	float: left;
-	box-shadow: 5px 5px 5px #777;
+#gameBoard {
+	width: 500px;
 }
