@@ -12,9 +12,7 @@
 
 			<img src="images/sample-logo-black.png" alt="logo"><br>
 
-			<h1>Sample text, sampling the night away.</h1>
 
-			<h3>Persto lucidus nonummy damnum. Pertineo odio huic enim hendrerit tamen luctus. <img src="images/catbeach.jpg" alt="catbeach" id="catPic">Ratis tego nisl. Mauris paratus iusto vulputate tation si huic iriure valetudo aliquip. Vero fere mara dolore fere. Modo sagaciter vel gemino nobis eu voco.</h3>
 
 		<div id="difficulty">
 			<fieldset>
@@ -63,28 +61,39 @@
 				</select>
 				</div>
 
-				<input class="button" type="submit" name="begin" value="Let's Begin" />
+				<button type="button" class="button" name="letsBegin" id="letsBegin">Let's Begin</button>
 
 			</fieldset>
 		</div>
 
-		<div id="tableContainer">
-			<div id="tableRow">
+		<div class="tableContainer">
+			<div class="tableRow">
 				<div id="gameConsole">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut ornare massa. Donec ac lectus diam. Curabitur sed mi velit. Fusce egestas tortor in fringilla imperdiet. Proin egestas tincidunt dictum. Sed at aliquet nisi. Nulla vel laoreet ante. Sed et libero arcu. In eget tortor id eros dapibus posuere. Cras tristique elit id porttitor varius. Nunc eleifend hendrerit cursus. Aenean ac pulvinar massa. Morbi eget urna et urna mattis aliquet. Aliquam eget arcu massa.</p>
+					<br><br>
+					<img src="images/tileTemplate.jpg" alt="tileTemplate" id="tileTemplate"><br><br>
+					<input type="text" name="guess" id="guess"><br><br>
+					<span id="verify">&nbsp;</span><br><br>
+					<button type="button" class="button" name="submitGuess" id="submitGuess">Submit Guess</button>
+					<button type="button" class="button" name="playAgain" id="playAgain">Play Again</button>
 				</div>
+
+		
 				<div id="gameBoard">
-					<img src="images/tile1.jpg" alt="tile1" id="tile1">
-					<img src="images/tile2.jpg" alt="tile2" id="tile2">
-					<img src="images/tile3.jpg" alt="tile3" id="tile3">
-					<img src="images/tile4.jpg" alt="tile4" id="tile4">
+					<div class="tableContainer">
+						<div class="tableRow">
+					<img src="images/tile1.jpg" alt="tile1" class="tile" id="tile1">
+					<img src="images/tile3.jpg" alt="tile3" class="tile" id="tile3">
+						<div class="tableRow">
+					<img src="images/tile2.jpg" alt="tile2" class="tile" id="tile2">
+					<img src="images/tile4.jpg" alt="tile4" class="tile" id="tile4">
 				</div>
 			</div>
+			</div>
 		</div>
-
+	</div>
 	</div>
 	<footer><br><br><br><br></footer>
-
+</div>
 </body>
 
 </html>
