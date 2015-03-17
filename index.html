@@ -4,17 +4,17 @@
 <meta charset="utf+8">
 <title>Puzzler</title>
 <link rel="stylesheet" href="styles.css" type="text/css">
-<script src="main.js"></script>
+<script src="main3by3.js"></script>
 </head>
 
 <body>
 	<div id="main">
 
-			<img src="images/sample-logo-black.png" alt="logo"><br>
+			<img src="images/sample-logo-black.png" alt="logo"><br><br>
 
 
 
-		<div id="difficulty">
+		<!-- <div id="difficulty">
 			<fieldset>
 				<legend>Difficulty</legend>
 				<label for="radio">Easy</label>
@@ -26,16 +26,16 @@
 				<label for="radio">Custom</label>
 				<input type="radio" name="difficulty" value="custom">
 			</fieldset>
-		</div>
+		</div> -->
 
 		<div id="custom">
 			<fieldset>
 
-				<legend>Custom</legend>
+				<legend>Controls</legend>
 				<span class="title">Controls:</span>
 				<div class="menuOptions">
 				<label for="radio">Number Pad</label>
-				<input type="radio" name="controls" value="numberPad">
+				<input type="radio" name="controls" value="numberPad" checked="checked">
 				<label for="radio">Mouse</label>
 				<input type="radio" name="controls" value="mouse"><br>
 				</div>
@@ -43,7 +43,7 @@
 				<span class="title">Speed:</span>
 				<div class="menuOptions">
 				<label for="radio">Slow</label>
-				<input type="radio" name="speed" value="slow">
+				<input type="radio" name="speed" value="slow" checked="checked">
 				<label for="radio">Medium</label>
 				<input type="radio" name="speed" value="medium">
 				<label for="radio">Fast</label>
@@ -56,40 +56,57 @@
 					<option value="2 x 2">2 x 2</option>
 					<option value="2 x 3">2 x 3</option>
 					<option value="3 x 3">3 x 3</option>
-					<option value="4 x 3">4 x 3</option>
-					<option value="4 x 4">4 x 4</option>
 				</select>
 				</div>
 
 				<button type="button" class="button" name="letsBegin" id="letsBegin">Let's Begin</button>
+				<button type="button" class="button" name="resetGame" id="resetGame">Reset Game</button>
 
 			</fieldset>
 		</div>
-
+		<br>
 		<div class="tableContainer">
 			<div class="tableRow">
 				<div id="gameConsole">
-					<br><br>
+					<br><br><br><br><br>
 					<img src="images/tileTemplate.jpg" alt="tileTemplate" id="tileTemplate"><br><br>
-					<input type="text" name="guess" id="guess"><br><br>
+					<input type="text" name="guess" maxlength="1"size="2" id="guess"><br><br>
 					<span id="verify">&nbsp;</span><br><br>
-					<button type="button" class="button" name="submitGuess" id="submitGuess">Submit Guess</button>
-					<button type="button" class="button" name="playAgain" id="playAgain">Play Again</button>
 				</div>
 
 		
-				<div id="gameBoard">
+				<!-- <div id="gameBoard">
 					<div class="tableContainer">
 						<div class="tableRow">
-					<img src="images/tile1.jpg" alt="tile1" class="tile" id="tile1">
-					<img src="images/tile3.jpg" alt="tile3" class="tile" id="tile3">
+							<img src="images/tile1.jpg" alt="tile1" class="tile" id="tile1">
+							<img src="images/tile3.jpg" alt="tile3" class="tile" id="tile3">
 						<div class="tableRow">
-					<img src="images/tile2.jpg" alt="tile2" class="tile" id="tile2">
-					<img src="images/tile4.jpg" alt="tile4" class="tile" id="tile4">
+							<img src="images/tile2.jpg" alt="tile2" class="tile" id="tile2">
+							<img src="images/tile4.jpg" alt="tile4" class="tile" id="tile4">
+						</div>
+						</div>
+					</div>
+				</div> -->
+								<div id="gameBoard">
+					<div class="tableContainer">
+						<div class="tableRow">
+							<img src="images/tile1.jpg" alt="tile1" class="tile" id="tile1">
+							<img src="images/tile4.jpg" alt="tile4" class="tile" id="tile4">
+							<img src="images/tile7.jpg" alt="tile7" class="tile" id="tile7">
+
+						<div class="tableRow">
+							<img src="images/tile2.jpg" alt="tile2" class="tile" id="tile2">
+							<img src="images/tile5.jpg" alt="tile5" class="tile" id="tile5">
+							<img src="images/tile8.jpg" alt="tile8" class="tile" id="tile8">
+						</div>
+						<div class="tableRow">
+							<img src="images/tile3.jpg" alt="tile3" class="tile" id="tile3">
+							<img src="images/tile6.jpg" alt="tile6" class="tile" id="tile6">
+							<img src="images/tile9.jpg" alt="tile9" class="tile" id="tile9">
+						</div>
+						</div>	
+					</div>
 				</div>
-			</div>
-			</div>
-		</div>
 	</div>
 	</div>
 	<footer><br><br><br><br></footer>
