@@ -1,130 +1,116 @@
-var $ = function(id) { return document.getElementById(id) };
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf+8">
+<title>Puzzler</title>
+<link rel="stylesheet" href="styles.css" type="text/css">
+<script src="main3by3.js"></script>
+</head>
 
-var randomNumber = function (min, max) {
-	return Math.floor ( Math.random() * ( max - min + 1 ) + min );
-}
+<body>
+	<div id="main">
 
-var tileNumber = randomNumber (1,4);
-var answerArray = [false, false, false, false];
-var countdownTimer;
-var seconds = 50;
-
-var secondPassed = function() {
-	var remainingSeconds = seconds % 60;
-	var remainingMilliseconds = parseFloat(seconds / 10);
-
-    document.getElementById('timer').innerHTML = "&nbsp;" + remainingMilliseconds;
-    if (seconds == 0) {
-        clearInterval(countdownTimer);
-        document.getElementById('timer').innerHTML = "";
-        gameOver();
-    } else {
-        seconds--;
-    }
-}
-
-var gameOver = function () {
-	document.getElementById("tileTemplate").src = "images/gameOver.jpg";
-	document.getElementById("guess").value = "";	
-	document.getElementById("verify").firstChild.nodeValue = "";	
-	document.getElementById("guess").blur();	
-	document.getElementById("letsBegin").disabled = true;		
-}
-
-var tileSwitch = function () {
-
-	switch (tileNumber) {
-	case 1:
-		document.getElementById("tileTemplate").src = "images/dogImage1.jpg";
-		break;
-	case 2:
-		document.getElementById("tileTemplate").src = "images/dogImage2.jpg";
-		break;
-	case 3:
-		document.getElementById("tileTemplate").src = "images/dogImage3.jpg";
-		break;
-	case 4:
-		document.getElementById("tileTemplate").src = "images/dogImage4.jpg";
-	break;
-	}	
-
-	document.getElementById("guess").focus();
-
-	countdownTimer = setInterval('secondPassed()', 100);
-	
-}
-
-var gamePlay = function () {
-	var submittedGuess = parseInt(document.getElementById("guess").value);
-
-	if (submittedGuess == "") {
-		document.getElementById("guess").focus();
-	} else {
-		if (isNaN(submittedGuess) || submittedGuess > 4) {
-		document.getElementById("verify").firstChild.nodeValue = "Please enter a valid number.";
-		document.getElementById("guess").value = "";
-		document.getElementById("guess").focus();
-		return;
-	}
-	}
-
-	document.getElementById("verify").firstChild.nodeValue = "";
-	// if (document.getElementById("timer").firstChild.nodeValue <= 0.2) {
-	// 	gameOver();
-	// }
-
-
-	if (submittedGuess != tileNumber) {
-		gameOver();
-	}
-
-	if (submittedGuess == tileNumber) {
-		answerArray[tileNumber - 1] = true;
-		if (answerArray[0] == true && answerArray[1] == true && 
-				answerArray[2] == true && answerArray[3] == true ) {
-				
-				document.getElementById("tile1").src = "images/dogImage1.jpg";
-				document.getElementById("tile2").src = "images/dogImage2.jpg";
-				document.getElementById("tile3").src = "images/dogImage3.jpg";
-				document.getElementById("tile4").src = "images/dogImage4.jpg";
-				document.getElementById("tileTemplate").src = "images/youWon.jpg";
-				document.getElementById("letsBegin").disabled = true;
-				document.getElementById("guess").blur();
-
-			} else {
-			
-			console.log(answerArray);
-
-			do { 
-				tileNumber = randomNumber(1,4);
-			} while ( answerArray[tileNumber - 1] == true ) 
-
-			console.log(tileNumber);
-
-			$("guess").value = "";
-			document.getElementById("guess").focus();
-			tileSwitch();
-			return this;
-		}
-	}
-	}
-
-	var initializeGame = function () {
-		document.getElementById("tile1").src = "images/tile1.jpg";
-		document.getElementById("tile2").src = "images/tile2.jpg";
-		document.getElementById("tile3").src = "images/tile3.jpg";
-		document.getElementById("tile4").src = "images/tile4.jpg";
-		document.getElementById("tileTemplate").src = "images/tileTemplate.jpg";
-		document.getElementById("letsBegin").disabled = false;
-		document.getElementById("guess").blur();
-		document.getElementById("verify").firstChild.nodeValue = "";
-		answerArray = [false, false, false, false];
-	}
+			<img src="images/sample-logo-black.png" alt="logo"><br><br>
 
 
 
-window.onload = function (){
-	$("letsBegin").onclick = tileSwitch;
-	$("guess").onkeyup = gamePlay;
-	$("resetGame").onclick = initializeGame;
-}
+		<!-- <div id="difficulty">
+			<fieldset>
+				<legend>Difficulty</legend>
+				<label for="radio">Easy</label>
+				<input type="radio" name="difficulty" value="easy">
+				<label for="radio">Medium</label>
+				<input type="radio" name="difficulty" value="medium">
+				<label for="radio">Hard</label>
+				<input type="radio" name="difficulty" value="hard">
+				<label for="radio">Custom</label>
+				<input type="radio" name="difficulty" value="custom">
+			</fieldset>
+		</div> -->
+
+		<div id="custom">
+			<fieldset>
+
+				<legend>Controls</legend>
+				<span class="title">Controls:</span>
+				<div class="menuOptions">
+				<label for="radio">Number Pad</label>
+				<input type="radio" name="controls" value="numberPad" checked="checked">
+				<label for="radio">Mouse</label>
+				<input type="radio" name="controls" value="mouse"><br>
+				</div>
+
+				<span class="title">Speed:</span>
+				<div class="menuOptions">
+				<label for="radio">Slow</label>
+				<input type="radio" name="speed" value="slow" checked="checked">
+				<label for="radio">Medium</label>
+				<input type="radio" name="speed" value="medium">
+				<label for="radio">Fast</label>
+				<input type="radio" name="speed" value="fast"><br>
+				</div>
+
+				<span class="title">Size:</span>
+				<div class="menuOptions">
+				<select name="size">
+					<option value="2 x 2">2 x 2</option>
+					<option value="2 x 3">2 x 3</option>
+					<option value="3 x 3">3 x 3</option>
+				</select>
+				</div>
+
+				<button type="button" class="button" name="letsBegin" id="letsBegin">Let's Begin</button>
+				<button type="button" class="button" name="resetGame" id="resetGame">Reset Game</button>
+
+			</fieldset>
+		</div>
+		<br>
+		<div class="tableContainer">
+			<div class="tableRow">
+				<div id="gameConsole">
+					<br><br><br><br><br>
+					<img src="images/tileTemplate.jpg" alt="tileTemplate" id="tileTemplate"><br><br>
+					<input type="text" name="guess" maxlength="1"size="2" id="guess"><br><br>
+					<span id="verify">&nbsp;</span><br><br>
+				</div>
+
+		
+				<!-- <div id="gameBoard">
+					<div class="tableContainer">
+						<div class="tableRow">
+							<img src="images/tile1.jpg" alt="tile1" class="tile" id="tile1">
+							<img src="images/tile3.jpg" alt="tile3" class="tile" id="tile3">
+						<div class="tableRow">
+							<img src="images/tile2.jpg" alt="tile2" class="tile" id="tile2">
+							<img src="images/tile4.jpg" alt="tile4" class="tile" id="tile4">
+						</div>
+						</div>
+					</div>
+				</div> -->
+								<div id="gameBoard">
+					<div class="tableContainer">
+						<div class="tableRow">
+							<img src="images/tile1.jpg" alt="tile1" class="tile" id="tile1">
+							<img src="images/tile4.jpg" alt="tile4" class="tile" id="tile4">
+							<img src="images/tile7.jpg" alt="tile7" class="tile" id="tile7">
+
+						<div class="tableRow">
+							<img src="images/tile2.jpg" alt="tile2" class="tile" id="tile2">
+							<img src="images/tile5.jpg" alt="tile5" class="tile" id="tile5">
+							<img src="images/tile8.jpg" alt="tile8" class="tile" id="tile8">
+						</div>
+						<div class="tableRow">
+							<img src="images/tile3.jpg" alt="tile3" class="tile" id="tile3">
+							<img src="images/tile6.jpg" alt="tile6" class="tile" id="tile6">
+							<img src="images/tile9.jpg" alt="tile9" class="tile" id="tile9">
+						</div>
+						</div>	
+					</div>
+				</div>
+	</div>
+	</div>
+	<footer><br><br><br><br></footer>
+</div>
+</body>
+
+</html>
