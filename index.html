@@ -4,7 +4,7 @@
 <meta charset="utf+8">
 <title>Puzzler</title>
 <link rel="stylesheet" href="styles.css" type="text/css">
-<script src="main3by3.js"></script>
+<script src="main2by2.js"></script>
 </head>
 
 <body>
@@ -41,13 +41,13 @@
 				</div>
 
 				<span class="title">Speed:</span>
-				<div class="menuOptions">
+				<div class="menuOptions" id="speedChoice">
 				<label for="radio">Slow</label>
-				<input type="radio" name="speed" value="slow" checked="checked">
+				<input type="radio" name="speed" value="slow" id="slow" checked="checked">
 				<label for="radio">Medium</label>
-				<input type="radio" name="speed" value="medium">
+				<input type="radio" name="speed" value="medium" id="medium">
 				<label for="radio">Fast</label>
-				<input type="radio" name="speed" value="fast"><br>
+				<input type="radio" name="speed" value="fast" id="fast"><br>
 				</div>
 
 				<span class="title">Size:</span>
@@ -68,14 +68,16 @@
 		<div class="tableContainer">
 			<div class="tableRow">
 				<div id="gameConsole">
-					<br><br><br><br><br>
+					<br><br>
+					<span id="timer">&nbsp;</span>
+					<br><br>
 					<img src="images/tileTemplate.jpg" alt="tileTemplate" id="tileTemplate"><br><br>
 					<input type="text" name="guess" maxlength="1"size="2" id="guess"><br><br>
 					<span id="verify">&nbsp;</span><br><br>
 				</div>
 
 		
-				<!-- <div id="gameBoard">
+				<div id="gameBoard">
 					<div class="tableContainer">
 						<div class="tableRow">
 							<img src="images/tile1.jpg" alt="tile1" class="tile" id="tile1">
@@ -86,8 +88,8 @@
 						</div>
 						</div>
 					</div>
-				</div> -->
-								<div id="gameBoard">
+				</div>
+<!-- 				<div id="gameBoard">
 					<div class="tableContainer">
 						<div class="tableRow">
 							<img src="images/tile1.jpg" alt="tile1" class="tile" id="tile1">
@@ -106,8 +108,8 @@
 						</div>
 						</div>	
 					</div>
-				</div>
-	</div>
+				</div> -->
+			</div>
 	</div>
 	<footer><br><br><br><br></footer>
 </div>
