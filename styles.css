@@ -1,19 +1,23 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(http://fonts.googleapis.com/css?family=Sanchez);
+@import url(http://fonts.googleapis.com/css?family=Trocchi);
+@import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
+@import url(http://fonts.googleapis.com/css?family=Cousine:700);
 
 /** {
 	border: 1px dashed red;
 }*/
 
 body {
-	background: #e0f2f6;
-	font-family: Roboto Condensed, Helvetica, sans-serif;
+	background: #bdbc9f;
+	font-family: Trocchi, Helvetica, sans-serif;
 	text-align: center;
 	margin: auto;
 }
 
 div#main {
-	background-color: #d2cccc; 
+	background-color: #c9c9c9; 
 	height: 85%;
 	width: 800px;
 	padding: 5px;
@@ -22,7 +26,7 @@ div#main {
 	min-width: 650px;
 	margin-right: auto;
 	margin-left: auto;
-	border-radius: 15px;
+	/*border-radius: 15px;*/
 	box-shadow: 5px 5px 5px #777;
 }
 
@@ -30,29 +34,18 @@ div#main>img {
 	margin-top: 25px;
 }
 
-h1 {
-	font-family: Pacifico;
-}
-
-h3 {
-	text-align: left;
-	padding: 0 100px;
-	margin-right: auto;
-	margin-left: auto;
-}
-
 fieldset {
 	width: 475px;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 25px;
-	background-color: #e6e70b;
+	background-color: #e7e263;
 	border-radius: 10px;
 }
 
 legend {
 	text-align: center;
-	font-family: Pacifico;
+	font-family: Trocchi;
 	background-color: white;
 	border-radius: 5px;
 }
@@ -74,27 +67,27 @@ div.menuOptions {
 	text-align: left;
 }
 
-#catPic {
-	height: 200px;
-	width: 300px;
-	float: left;
-	margin-right: 15px;
-	margin-top: 10px;
-	margin-bottom: 15px;
-}
-
 .button {
 	height: 25px;
 	width: 85px;
-	background-color: #00CCFF;
+	background-color: #ffa500;
 	border-radius: 10px;
-	font-family: Roboto Condensed;
+	font-family: Trocchi;
 	outline: none;
 }
 
 #letsBegin, #resetGame {
 	float: left;
 	margin-left: 100px;
+}
+
+#timer {
+	font-family: Cousine;
+	color: red;
+	font-size: 150%;
+	/*border: 2px solid black;
+	background-color: white;*/
+	width: 50px;
 }
 
 .tableContainer {
@@ -113,8 +106,8 @@ div.menuOptions {
 	display: table-cell;
 	margin: 0;
 	padding: 0;
-	height: 150px;
-	width: 150px;
+	height: 200px;
+	width: 200px;
 }
 
 #gameConsole {
@@ -122,7 +115,7 @@ div.menuOptions {
 	vertical-align: top;
 }
 
-#gameBoard {
+/*#gameBoard {
 	width: 450px;
 	border: 1px solid black;
-}
+}*/
