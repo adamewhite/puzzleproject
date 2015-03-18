@@ -5,16 +5,31 @@ var randomNumber = function (min, max) {
 }
 
 var tileNumber = randomNumber (1,4);
-
 var answerArray = [false, false, false, false];
+var countdownTimer;
+var seconds = 50;
 
-	var gameOver = function () {
-		document.getElementById("tileTemplate").src = "images/gameOver.jpg";
-		document.getElementById("guess").value = "";
-		document.getElementById("verify").firstChild.nodeValue = "";
-		document.getElementById("guess").blur();
-		document.getElementById("letsBegin").disabled = true;
-	}
+var secondPassed = function() {
+	var remainingSeconds = seconds % 60;
+	var remainingMilliseconds = parseFloat(seconds / 10);
+
+    document.getElementById('timer').innerHTML = "&nbsp;" + remainingMilliseconds;
+    if (seconds == 0) {
+        clearInterval(countdownTimer);
+        document.getElementById('timer').innerHTML = "";
+        gameOver();
+    } else {
+        seconds--;
+    }
+}
+
+var gameOver = function () {
+	document.getElementById("tileTemplate").src = "images/gameOver.jpg";
+	document.getElementById("guess").value = "";	
+	document.getElementById("verify").firstChild.nodeValue = "";	
+	document.getElementById("guess").blur();	
+	document.getElementById("letsBegin").disabled = true;		
+}
 
 var tileSwitch = function () {
 
@@ -35,7 +50,7 @@ var tileSwitch = function () {
 
 	document.getElementById("guess").focus();
 
-	setTimeout(gameOver(), 2000);
+	countdownTimer = setInterval('secondPassed()', 100);
 	
 }
 
@@ -52,7 +67,12 @@ var gamePlay = function () {
 		return;
 	}
 	}
+
 	document.getElementById("verify").firstChild.nodeValue = "";
+	// if (document.getElementById("timer").firstChild.nodeValue <= 0.2) {
+	// 	gameOver();
+	// }
+
 
 	if (submittedGuess != tileNumber) {
 		gameOver();
