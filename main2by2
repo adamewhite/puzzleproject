@@ -7,54 +7,67 @@ var randomNumber = function (min, max) {
 var tileNumber = randomNumber (1,4);
 var answerArray = [false, false, false, false];
 var countdownTimer;
-var seconds = 50;
+var seconds;
 
 var secondPassed = function() {
-	var remainingSeconds = seconds % 60;
-	var remainingMilliseconds = parseFloat(seconds / 10);
+	var remainingSeconds = parseFloat(seconds / 10);
 
-    document.getElementById('timer').innerHTML = "&nbsp;" + remainingMilliseconds;
+	console.log(seconds);
+
+    document.getElementById('timer').innerHTML = remainingSeconds;
+
     if (seconds == 0) {
         clearInterval(countdownTimer);
         document.getElementById('timer').innerHTML = "";
-        gameOver();
+
+        for (i = 0; i < answerArray.length; i++) {
+			if (answerArray[i] == true) {
+				gameWon = true;
+			} else {
+				gameWon = false;
+				break;
+			}
+		} 
+
+		if (gameWon) { 
+			console.log("Winner!");
+        } else {
+        	gameOver();
+        }
+
     } else {
         seconds--;
     }
 }
 
-var gameOver = function () {
-	document.getElementById("tileTemplate").src = "images/gameOver.jpg";
-	document.getElementById("guess").value = "";	
-	document.getElementById("verify").firstChild.nodeValue = "";	
-	document.getElementById("guess").blur();	
-	document.getElementById("letsBegin").disabled = true;		
-}
+
 
 var tileSwitch = function () {
 
-	switch (tileNumber) {
-	case 1:
-		document.getElementById("tileTemplate").src = "images/dogImage1.jpg";
-		break;
-	case 2:
-		document.getElementById("tileTemplate").src = "images/dogImage2.jpg";
-		break;
-	case 3:
-		document.getElementById("tileTemplate").src = "images/dogImage3.jpg";
-		break;
-	case 4:
-		document.getElementById("tileTemplate").src = "images/dogImage4.jpg";
-	break;
-	}	
+	if (countdownTimer != null) {
+		clearInterval(countdownTimer);
+	}
+
+	if (tileNumber) {
+		document.getElementById("tileTemplate").src = "images/dogImage" + tileNumber + ".jpg";
+	}
 
 	document.getElementById("guess").focus();
+
+	if (document.getElementById("slow").checked) {
+		seconds = 90;
+	} else if (document.getElementById("medium").checked) {
+		seconds = 60;
+	} else {
+		seconds = 30;
+	}
 
 	countdownTimer = setInterval('secondPassed()', 100);
 	
 }
 
 var gamePlay = function () {
+
 	var submittedGuess = parseInt(document.getElementById("guess").value);
 
 	if (submittedGuess == "") {
@@ -69,10 +82,8 @@ var gamePlay = function () {
 	}
 
 	document.getElementById("verify").firstChild.nodeValue = "";
-	// if (document.getElementById("timer").firstChild.nodeValue <= 0.2) {
-	// 	gameOver();
-	// }
 
+	var gameWon = false;
 
 	if (submittedGuess != tileNumber) {
 		gameOver();
@@ -80,50 +91,72 @@ var gamePlay = function () {
 
 	if (submittedGuess == tileNumber) {
 		answerArray[tileNumber - 1] = true;
-		if (answerArray[0] == true && answerArray[1] == true && 
-				answerArray[2] == true && answerArray[3] == true ) {
-				
-				document.getElementById("tile1").src = "images/dogImage1.jpg";
-				document.getElementById("tile2").src = "images/dogImage2.jpg";
-				document.getElementById("tile3").src = "images/dogImage3.jpg";
-				document.getElementById("tile4").src = "images/dogImage4.jpg";
-				document.getElementById("tileTemplate").src = "images/youWon.jpg";
-				document.getElementById("letsBegin").disabled = true;
-				document.getElementById("guess").blur();
 
+		for (i = 0; i < answerArray.length; i++) {
+			if (answerArray[i] == true) {
+				gameWon = true;
 			} else {
-			
-			console.log(answerArray);
+				gameWon = false;
+				break;
+			}
+		}
+
+		if (gameWon) {		
+			var tileArray = [];
+
+			for ( var i = 1; i <= answerArray.length; i++) {
+				tileArray.push("tile" + i);
+			}
+
+			for (var i = 0; i < tileArray.length; i++) {
+				document.getElementById(tileArray[i]).src = "images/dogImage" + (i + 1) + ".jpg";
+			}
+
+			document.getElementById("tileTemplate").src = "images/youWon.jpg";
+			document.getElementById("letsBegin").disabled = true;
+			document.getElementById("guess").value = "";
+			document.getElementById("guess").blur();
+			seconds = 0;
+
+		} else {
 
 			do { 
 				tileNumber = randomNumber(1,4);
 			} while ( answerArray[tileNumber - 1] == true ) 
 
-			console.log(tileNumber);
-
-			$("guess").value = "";
+			document.getElementById("guess").value = "";
 			document.getElementById("guess").focus();
 			tileSwitch();
-			return this;
 		}
 	}
-	}
+}
 
-	var initializeGame = function () {
-		document.getElementById("tile1").src = "images/tile1.jpg";
-		document.getElementById("tile2").src = "images/tile2.jpg";
-		document.getElementById("tile3").src = "images/tile3.jpg";
-		document.getElementById("tile4").src = "images/tile4.jpg";
-		document.getElementById("tileTemplate").src = "images/tileTemplate.jpg";
-		document.getElementById("letsBegin").disabled = false;
-		document.getElementById("guess").blur();
-		document.getElementById("verify").firstChild.nodeValue = "";
-		answerArray = [false, false, false, false];
-	}
+var gameOver = function () {
+	document.getElementById("tileTemplate").src = "images/gameOver.jpg";
+	document.getElementById("guess").value = "";	
+	document.getElementById("verify").firstChild.nodeValue = "";	
+	document.getElementById("guess").blur();	
+	document.getElementById("letsBegin").disabled = true;	
+	seconds = 0;
+}
+
+var initializeGame = function () {
+	document.getElementById("tile1").src = "images/tile1.jpg";
+	document.getElementById("tile2").src = "images/tile2.jpg";
+	document.getElementById("tile3").src = "images/tile3.jpg";
+	document.getElementById("tile4").src = "images/tile4.jpg";
+	document.getElementById("tileTemplate").src = "images/tileTemplate.jpg";
+	document.getElementById("letsBegin").disabled = false;
+	document.getElementById("guess").blur();
+	document.getElementById("verify").firstChild.nodeValue = "";
+	answerArray = [false, false, false, false];
+	clearInterval(countdownTimer);
+	gameWon = false;
+}
 
 
 
-window.onload = function (){
+window.onload = function () {
 	$("letsBegin").onclick = tileSwitch;
 	$("guess").onkeyup = gamePlay;
 	$("resetGame").onclick = initializeGame;
