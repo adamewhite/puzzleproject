@@ -8,6 +8,54 @@ var tileNumber = randomNumber (1,4);
 var answerArray = [false, false, false, false];
 var countdownTimer;
 var seconds;
+var gridsize = 0;
+
+var tileSetup = function () {
+
+	if (document.getElementById("2x2").selected) {
+		gridsize = 4;
+	} else if (document.getElementById("2x3").selected) {
+		gridsize = 6;
+	} else if (document.getElementById("3x3").selected) {
+		gridsize = 9;
+	}
+
+	var initialArray = [];
+
+	var orderTile = function (length) {
+
+		for (i = 1; i < length + 1; i++) {
+			initialArray.push(i);
+		}
+		return;
+	}
+
+	orderTile(gridsize);
+
+	var shuffleTile = function (array) {
+	    var i = array.length,
+	        j = 0,
+	        temp;
+
+	    while (i--) {
+	        j = Math.floor(Math.random() * (i+1));
+	        // swap randomly chosen element with current element
+	        temp = array[i];
+	        array[i] = array[j];
+	        array[j] = temp;
+	    }
+	    return initialArray;
+	}
+
+	shuffleTile(initialArray);
+
+	initialArray = ("tileNode" + initialArray.join('tileNode')).split(/(?=tileNode)/);
+
+	for (var i = 0; i < initialArray.length; i++) {
+			document.getElementById(initialArray[i]).src = "images/dogImage" + (i + 1) + ".jpg";
+		
+	}
+	}
 
 var secondPassed = function() {
 	var remainingSeconds = parseFloat(seconds / 10);
@@ -105,7 +153,7 @@ var gamePlay = function () {
 			var tileArray = [];
 
 			for ( var i = 1; i <= answerArray.length; i++) {
-				tileArray.push("tile" + i);
+				tileArray.push("tileNode" + i);
 			}
 
 			for (var i = 0; i < tileArray.length; i++) {
@@ -157,7 +205,7 @@ var initializeGame = function () {
 
 
 window.onload = function () {
-	$("letsBegin").onclick = tileSwitch;
+	$("letsBegin").onclick = tileSetup;
 	$("guess").onkeyup = gamePlay;
 	$("resetGame").onclick = initializeGame;
 }
