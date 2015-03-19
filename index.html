@@ -50,12 +50,21 @@
 				<input type="radio" name="speed" value="fast" id="fast"><br>
 				</div>
 
+				<span class="title">Order:</span>
+				<div class="menuOptions" id="speedChoice">
+				<label for="radio">Ascendent</label>
+				<input type="radio" name="order" value="ascendent" id="ascendent" checked="checked">
+				<label for="radio">Random</label>
+				<input type="radio" name="order" value="random" id="random">
+				<br>
+				</div>
+
 				<span class="title">Size:</span>
 				<div class="menuOptions">
 				<select name="size">
-					<option value="2 x 2">2 x 2</option>
-					<option value="2 x 3">2 x 3</option>
-					<option value="3 x 3">3 x 3</option>
+					<option value="2x2" id="2x2" selected="selected">2 x 2</option>
+					<option value="2x3" id="2x3">2 x 3</option>
+					<option value="3x3" id="3x3">3 x 3</option>
 				</select>
 				</div>
 
@@ -80,11 +89,11 @@
 				<div id="gameBoard">
 					<div class="tableContainer">
 						<div class="tableRow">
-							<img src="images/tile1.jpg" alt="tile1" class="tile" id="tile1">
-							<img src="images/tile3.jpg" alt="tile3" class="tile" id="tile3">
+							<img src="images/tile1.jpg" alt="tile1" class="tile" id="tileNode1">
+							<img src="images/tile3.jpg" alt="tile3" class="tile" id="tileNode3">
 						<div class="tableRow">
-							<img src="images/tile2.jpg" alt="tile2" class="tile" id="tile2">
-							<img src="images/tile4.jpg" alt="tile4" class="tile" id="tile4">
+							<img src="images/tile2.jpg" alt="tile2" class="tile" id="tileNode2">
+							<img src="images/tile4.jpg" alt="tile4" class="tile" id="tileNode4">
 						</div>
 						</div>
 					</div>
