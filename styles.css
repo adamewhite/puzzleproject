@@ -6,7 +6,7 @@
 }*/
 
 body {
-	background: #e0f2f6;
+	background: #bdb6c6;
 	font-family: Roboto Condensed, Helvetica, sans-serif;
 	text-align: center;
 	margin: auto;
@@ -22,32 +22,26 @@ div#main {
 	min-width: 650px;
 	margin-right: auto;
 	margin-left: auto;
-	border-radius: 15px;
+/*	border-radius: 15px;*/
 	box-shadow: 5px 5px 5px #777;
 }
 
-div#main>img {
+#logo {
 	margin-top: 25px;
+	height: 125px;
+	width: 600px;
 }
 
-h1 {
-	font-family: Pacifico;
-}
-
-h3 {
-	text-align: left;
-	padding: 0 100px;
-	margin-right: auto;
-	margin-left: auto;
-}
 
 fieldset {
 	width: 475px;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 25px;
-	background-color: #e6e70b;
-	border-radius: 10px;
+	background-color: #b9cc1d;
+/*	border-radius: 10px;*/
+	border: none;
+	box-shadow: 5px 5px 5px #777;
 }
 
 legend {
@@ -93,8 +87,11 @@ div.menuOptions {
 }
 
 #letsBegin, #resetGame {
-	float: left;
-	margin-left: 100px;
+/*	float: left;
+	margin-left: 100px;*/
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .tableContainer {
@@ -107,6 +104,11 @@ div.menuOptions {
 
 .tableRow>div {
 	display: table-cell;
+}
+
+#tileTemplate {
+	height: 200px;
+	width: 200px;
 }
 
 .tile {
@@ -124,5 +126,5 @@ div.menuOptions {
 
 #gameBoard {
 	width: 450px;
-/*	border: 1px  solid black;*/
+/*	border: 1px solid black;*/
 }
