@@ -9,6 +9,8 @@ var answerArray = [false, false, false, false];
 var countdownTimer;
 var seconds;
 var gridsize = 0;
+var playOrder = [];
+var tileCorrespondent = 0;
 
 var tileSetup = function () {
 
@@ -32,35 +34,71 @@ var tileSetup = function () {
 
 	orderTile(gridsize);
 
-	var shuffleTile = function (array) {
-	    var i = array.length,
-	        j = 0,
-	        temp;
+	if (document.getElementById("sequential").checked) {
 
-	    while (i--) {
-	        j = Math.floor(Math.random() * (i+1));
-	        // swap randomly chosen element with current element
-	        temp = array[i];
-	        array[i] = array[j];
-	        array[j] = temp;
-	    }
-	    return initialArray;
+		playOrder = initialArray;
+
+		initialArray = ("tileNode" + initialArray.join('tileNode')).split(/(?=tileNode)/);
+
+		for (var i = 0; i < initialArray.length; i++) {
+			document.getElementById(initialArray[i]).src = "images/tile" + (i + 1) + ".png";
+		}	
+
+	} else {
+
+		var shuffleTile = function (array) {
+		    var i = array.length,
+		        j = 0,
+		        temp;
+
+		    while (i--) {
+		        j = Math.floor(Math.random() * (i+1));
+		        temp = array[i];
+		        array[i] = array[j];
+		        array[j] = temp;
+		    }
+		    return initialArray;
+		}
+
+		shuffleTile(initialArray);
+
+		var untiledShuffled = initialArray;
+
+		console.log("untiled shuffled: " + untiledShuffled);
+
+		// console.log("initial play order: " + playOrder);
+
+		initialArray = ("tileNode" + initialArray.join('tileNode')).split(/(?=tileNode)/);
+
+		for (var i = 0; i < initialArray.length; i++) {
+			document.getElementById(initialArray[i]).src = "images/tile" + (i + 1) + ".png";
+
+		}
+
+		for (var i = 1; i < 5; i++) {
+
+			playOrder.push(document.getElementById("tileNode" + i).src);
+
+		}
+
+
+		var x = playOrder[0].slice(-5)
+
+		var y = x.charAt(0);
+
 	}
 
-	shuffleTile(initialArray);
 
-	initialArray = ("tileNode" + initialArray.join('tileNode')).split(/(?=tileNode)/);
+	console.log("play order 0: " + playOrder[0]);
+	console.log("removed character: " + x);
+	console.log("char at: " + y);
 
-	for (var i = 0; i < initialArray.length; i++) {
-			document.getElementById(initialArray[i]).src = "images/dogImage" + (i + 1) + ".jpg";
-		
-	}
+	tileSwitch();
+
 	}
 
 var secondPassed = function() {
 	var remainingSeconds = parseFloat(seconds / 10);
-
-	console.log(seconds);
 
     document.getElementById('timer').innerHTML = remainingSeconds;
 
@@ -133,12 +171,18 @@ var gamePlay = function () {
 
 	var gameWon = false;
 
-	if (submittedGuess != tileNumber) {
+	console.log("initial array: " + playOrder)
+
+	console.log("tile number: " + tileNumber)
+
+	console.log("selected number: " + playOrder[tileNumber - 1]);
+
+	if (submittedGuess != playOrder[tileNumber - 1]) {
 		gameOver();
 	}
 
-	if (submittedGuess == tileNumber) {
-		answerArray[tileNumber - 1] = true;
+	if (submittedGuess == playOrder[tileNumber - 1]) {
+		answerArray[playOrder[tileNumber - 1] - 1] = true;
 
 		for (i = 0; i < answerArray.length; i++) {
 			if (answerArray[i] == true) {
@@ -160,7 +204,7 @@ var gamePlay = function () {
 				document.getElementById(tileArray[i]).src = "images/dogImage" + (i + 1) + ".jpg";
 			}
 
-			document.getElementById("tileTemplate").src = "images/youWon.jpg";
+			document.getElementById("tileTemplate").src = "images/youWon.png";
 			document.getElementById("letsBegin").disabled = true;
 			document.getElementById("guess").value = "";
 			document.getElementById("guess").blur();
@@ -172,6 +216,10 @@ var gamePlay = function () {
 				tileNumber = randomNumber(1,4);
 			} while ( answerArray[tileNumber - 1] == true ) 
 
+
+			console.log("answer array: " + answerArray);
+			// console.log("tile number: " + tileNumber);
+
 			document.getElementById("guess").value = "";
 			document.getElementById("guess").focus();
 			tileSwitch();
@@ -180,7 +228,7 @@ var gamePlay = function () {
 }
 
 var gameOver = function () {
-	document.getElementById("tileTemplate").src = "images/gameOver.jpg";
+	document.getElementById("tileTemplate").src = "images/gameOver.png";
 	document.getElementById("guess").value = "";	
 	document.getElementById("verify").firstChild.nodeValue = "";	
 	document.getElementById("guess").blur();	
@@ -189,11 +237,11 @@ var gameOver = function () {
 }
 
 var initializeGame = function () {
-	document.getElementById("tile1").src = "images/tile1.jpg";
-	document.getElementById("tile2").src = "images/tile2.jpg";
-	document.getElementById("tile3").src = "images/tile3.jpg";
-	document.getElementById("tile4").src = "images/tile4.jpg";
-	document.getElementById("tileTemplate").src = "images/tileTemplate.jpg";
+	document.getElementById("tileNode1").src = "images/tile1.png";
+	document.getElementById("tileNode2").src = "images/tile2.png";
+	document.getElementById("tileNode3").src = "images/tile3.png";
+	document.getElementById("tileNode4").src = "images/tile4.png";
+	document.getElementById("tileTemplate").src = "images/tileBlank.png";
 	document.getElementById("letsBegin").disabled = false;
 	document.getElementById("guess").blur();
 	document.getElementById("verify").firstChild.nodeValue = "";
