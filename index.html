@@ -10,7 +10,7 @@
 <body>
 	<div id="main">
 
-			<img src="images/sample-logo-black.png" alt="logo"><br><br>
+			<img src="images/logo.png" alt="logo" id="logo"><br><br>
 
 
 
@@ -31,8 +31,7 @@
 		<div id="custom">
 			<fieldset>
 
-				<legend>Controls</legend>
-				<span class="title">Controls:</span>
+<!-- 				<legend>Controls</legend> -->
 				<div class="menuOptions">
 				<label for="radio">Number Pad</label>
 				<input type="radio" name="controls" value="numberPad" checked="checked">
@@ -52,8 +51,8 @@
 
 				<span class="title">Order:</span>
 				<div class="menuOptions" id="speedChoice">
-				<label for="radio">Ascendent</label>
-				<input type="radio" name="order" value="ascendent" id="ascendent" checked="checked">
+				<label for="radio">Sequential</label>
+				<input type="radio" name="order" value="sequential" id="sequential" checked="checked">
 				<label for="radio">Random</label>
 				<input type="radio" name="order" value="random" id="random">
 				<br>
@@ -66,7 +65,7 @@
 					<option value="2x3" id="2x3">2 x 3</option>
 					<option value="3x3" id="3x3">3 x 3</option>
 				</select>
-				</div>
+				</div><br><br>
 
 				<button type="button" class="button" name="letsBegin" id="letsBegin">Let's Begin</button>
 				<button type="button" class="button" name="resetGame" id="resetGame">Reset Game</button>
@@ -80,7 +79,7 @@
 					<br><br>
 					<span id="timer">&nbsp;</span>
 					<br><br>
-					<img src="images/tileTemplate.jpg" alt="tileTemplate" id="tileTemplate"><br><br>
+					<img src="images/tileBlank.png" alt="tileTemplate" id="tileTemplate"><br><br>
 					<input type="text" name="guess" maxlength="1"size="2" id="guess"><br><br>
 					<span id="verify">&nbsp;</span><br><br>
 				</div>
@@ -89,11 +88,11 @@
 				<div id="gameBoard">
 					<div class="tableContainer">
 						<div class="tableRow">
-							<img src="images/tile1.jpg" alt="tile1" class="tile" id="tileNode1">
-							<img src="images/tile3.jpg" alt="tile3" class="tile" id="tileNode3">
+							<img src="images/tile1.png" alt="tile1" class="tile" id="tileNode1">
+							<img src="images/tile3.png" alt="tile3" class="tile" id="tileNode3">
 						<div class="tableRow">
-							<img src="images/tile2.jpg" alt="tile2" class="tile" id="tileNode2">
-							<img src="images/tile4.jpg" alt="tile4" class="tile" id="tileNode4">
+							<img src="images/tile2.png" alt="tile2" class="tile" id="tileNode2">
+							<img src="images/tile4.png" alt="tile4" class="tile" id="tileNode4">
 						</div>
 						</div>
 					</div>
@@ -101,19 +100,19 @@
 <!-- 				<div id="gameBoard">
 					<div class="tableContainer">
 						<div class="tableRow">
-							<img src="images/tile1.jpg" alt="tile1" class="tile" id="tile1">
-							<img src="images/tile4.jpg" alt="tile4" class="tile" id="tile4">
-							<img src="images/tile7.jpg" alt="tile7" class="tile" id="tile7">
+							<img src="images/tile1.png" alt="tile1" class="tile" id="tile1">
+							<img src="images/tile4.png" alt="tile4" class="tile" id="tile4">
+							<img src="images/tile7.png" alt="tile7" class="tile" id="tile7">
 
 						<div class="tableRow">
-							<img src="images/tile2.jpg" alt="tile2" class="tile" id="tile2">
-							<img src="images/tile5.jpg" alt="tile5" class="tile" id="tile5">
-							<img src="images/tile8.jpg" alt="tile8" class="tile" id="tile8">
+							<img src="images/tile2.png" alt="tile2" class="tile" id="tile2">
+							<img src="images/tile5.png" alt="tile5" class="tile" id="tile5">
+							<img src="images/tile8.png" alt="tile8" class="tile" id="tile8">
 						</div>
 						<div class="tableRow">
-							<img src="images/tile3.jpg" alt="tile3" class="tile" id="tile3">
-							<img src="images/tile6.jpg" alt="tile6" class="tile" id="tile6">
-							<img src="images/tile9.jpg" alt="tile9" class="tile" id="tile9">
+							<img src="images/tile3.png" alt="tile3" class="tile" id="tile3">
+							<img src="images/tile6.png" alt="tile6" class="tile" id="tile6">
+							<img src="images/tile9.png" alt="tile9" class="tile" id="tile9">
 						</div>
 						</div>	
 					</div>
