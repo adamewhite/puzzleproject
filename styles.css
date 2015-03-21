@@ -13,7 +13,7 @@ body {
 }
 
 div#main {
-	background-color: #d2cccc; 
+/*	background-color: #d2cccc; */
 	height: 85%;
 	width: 800px;
 	padding: 5px;
@@ -23,7 +23,7 @@ div#main {
 	margin-right: auto;
 	margin-left: auto;
 /*	border-radius: 15px;*/
-	box-shadow: 5px 5px 5px #777;
+/* 	box-shadow: 5px 5px 5px #777; */
 }
 
 #logo {
@@ -111,20 +111,46 @@ div.menuOptions {
 	width: 200px;
 }
 
-.tile {
+/* .tile {
 	display: table-cell;
 	margin: 0;
 	padding: 0;
-	height: 150px;
-	width: 150px;
-}
+	height: 240px;
+	width: 240px;
+} */
 
 #gameConsole {
 	width: 300px;
 	vertical-align: top;
 }
 
-#gameBoard {
-	width: 450px;
-/*	border: 1px solid black;*/
+#gameBoard2x2, #gameBoard3x3, #gameBoard4x4 {
+	display: none;
+	width: 480px;
 }
+
+#gameBoard2x2 .tile {
+	display: table-cell;
+	margin: 0;
+	padding: 0;
+	width: 240px;
+	height: 240px;
+}
+
+
+#gameBoard3x3 .tile {
+	display: table-cell;
+	margin: 0;
+	padding: 0;
+	width: 160px;
+	height: 160px;
+}
+
+#gameBoard4x4 .tile {
+	display: table-cell;
+	margin: 0;
+	padding: 0;
+	width: 120px;
+	height: 120px;
+}
+
