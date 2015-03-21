@@ -1,3 +1,4 @@
+
 var $ = function(id) { return document.getElementById(id) };
 
 var randomNumber = function (min, max) {
@@ -11,15 +12,19 @@ var seconds;
 var gridsize = 0;
 var playOrder = [];
 var tileCorrespondent = 0;
+var boardSize;
 
 var tileSetup = function () {
 
 	if (document.getElementById("2x2").selected) {
+		document.getElementById("gameBoard2x2").style.display = "block";
 		gridsize = 4;
-	} else if (document.getElementById("2x3").selected) {
-		gridsize = 6;
 	} else if (document.getElementById("3x3").selected) {
+		document.getElementById("gameBoard3x3").style.display = "block";
 		gridsize = 9;
+	} else if (document.getElementById("4x4").selected) {
+		document.getElementById("gameBoard4x4").style.display = "block";
+		gridsize = 16;
 	}
 
 	var initialArray = [];
@@ -69,29 +74,38 @@ var tileSetup = function () {
 		// console.log("initial play order: " + playOrder);
 
 		initialArray = ("tileNode" + initialArray.join('tileNode')).split(/(?=tileNode)/);
+		
+		console.log("initial array: " + initialArray);
 
 		for (var i = 0; i < initialArray.length; i++) {
 			document.getElementById(initialArray[i]).src = "images/tile" + (i + 1) + ".png";
 
 		}
 
-		for (var i = 1; i < 5; i++) {
-
-			playOrder.push(document.getElementById("tileNode" + i).src);
-
+		var temp = [];
+		
+		for (var i = 1; i < (initialArray.length + 1); i++) {
+			temp.push(document.getElementById("tileNode" + i).src);
 		}
-
-
-		var x = playOrder[0].slice(-5)
-
-		var y = x.charAt(0);
+		
+		console.log("temp: " + temp);
+		
+		var temp2 = [];
+		
+ 		for (i = 0; i < temp.length; i++) {
+			temp2.push(parseInt(temp[i].slice(-5, -4)));	
+		 } 
+	
+		playOrder = temp2;
+		
+		console.log("play order: " + playOrder);
 
 	}
 
 
-	console.log("play order 0: " + playOrder[0]);
-	console.log("removed character: " + x);
-	console.log("char at: " + y);
+/* 	console.log("play order: " + playOrder); */
+/* 	console.log("removed character: " + x);
+	console.log("char at: " + y); */
 
 	tileSwitch();
 
@@ -171,12 +185,9 @@ var gamePlay = function () {
 
 	var gameWon = false;
 
-	console.log("initial array: " + playOrder)
-
-	console.log("tile number: " + tileNumber)
-
-	console.log("selected number: " + playOrder[tileNumber - 1]);
-
+	console.log("submitted guess: " + submittedGuess);
+	console.log(answerArray);
+	
 	if (submittedGuess != playOrder[tileNumber - 1]) {
 		gameOver();
 	}
@@ -214,7 +225,7 @@ var gamePlay = function () {
 
 			do { 
 				tileNumber = randomNumber(1,4);
-			} while ( answerArray[tileNumber - 1] == true ) 
+			} while ( answerArray[playOrder[tileNumber - 1] - 1] == true ) 
 
 
 			console.log("answer array: " + answerArray);
