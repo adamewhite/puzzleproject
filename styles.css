@@ -6,7 +6,7 @@
 }*/
 
 body {
-	background: #bdb6c6;
+	background: #eb593c;
 	font-family: Roboto Condensed, Helvetica, sans-serif;
 	text-align: center;
 	margin: auto;
@@ -38,10 +38,10 @@ fieldset {
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 25px;
-	background-color: #b9cc1d;
+/*	background-color: #b9cc1d;*/
 /*	border-radius: 10px;*/
 	border: none;
-	box-shadow: 5px 5px 5px #777;
+/*	box-shadow: 5px 5px 5px #777;*/
 }
 
 legend {
@@ -124,7 +124,7 @@ div.menuOptions {
 	vertical-align: top;
 }
 
-#gameBoard2x2, #gameBoard3x3, #gameBoard4x4 {
+#gameBoard2x2, #gameBoard3x3, #gameBoard2x3 {
 	display: none;
 	width: 480px;
 }
@@ -146,11 +146,15 @@ div.menuOptions {
 	height: 160px;
 }
 
-#gameBoard4x4 .tile {
+#gameBoard2x3 {
+	margin-top: 30px;
+}
+
+#gameBoard2x3 .tile {
 	display: table-cell;
 	margin: 0;
 	padding: 0;
-	width: 120px;
-	height: 120px;
+	width: 160px;
+	height: 160px;
 }
 
