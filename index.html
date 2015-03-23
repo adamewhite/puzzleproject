@@ -4,13 +4,14 @@
 <meta charset="utf+8">
 <title>Puzzler</title>
 <link rel="stylesheet" href="styles.css" type="text/css">
-<script src="main2by2.js"></script>
+<script src="main.js"></script>
+
 </head>
 
 <body>
 	<div id="main">
 
-			<img src="images/logo-36.png" alt="logo" id="logo"><br><br>
+			<img src="images/logocolor.png" alt="logo" id="logo"><br><br>
 
 
 
@@ -62,8 +63,8 @@
 				<div class="menuOptions">
 				<select name="size">
 					<option value="2x2" id="2x2" selected="selected">2 x 2</option>
+					<option value="2x3" id="2x3">2 x 3</option>
 					<option value="3x3" id="3x3">3 x 3</option>
-					<option value="4x4" id="4x4">4 x 4</option>
 				</select>
 				</div><br><br>
 
@@ -88,63 +89,52 @@
 				
 					<div id="gameBoard2x2" class="tableContainer">
 						<div class="tableRow">
-							<img src="images/tile1.png" alt="tile1" class="tile" id="tileNode1">
-							<img src="images/tile3.png" alt="tile3" class="tile" id="tileNode3">
+							<img src="images/tile1.png" alt="tile1" class="tile" id="2x2tileNode1">
+							<img src="images/tile3.png" alt="tile3" class="tile" id="2x2tileNode3">
 						<div class="tableRow">
-							<img src="images/tile2.png" alt="tile2" class="tile" id="tileNode2">
-							<img src="images/tile4.png" alt="tile4" class="tile" id="tileNode4">
+							<img src="images/tile2.png" alt="tile2" class="tile" id="2x2tileNode2">
+							<img src="images/tile4.png" alt="tile4" class="tile" id="2x2tileNode4">
 						</div>
 						</div>
 					</div>
 				
+					<div id="gameBoard2x3" class="tableContainer">
+						<div class="tableRow">
+							<img src="images/tile1.png" alt="tile1" class="tile" id="2x3tileNode1">
+							<img src="images/tile4.png" alt="tile4" class="tile" id="2x3tileNode4">
+						<div class="tableRow">
+							<img src="images/tile2.png" alt="tile2" class="tile" id="2x3tileNode2">
+							<img src="images/tile5.png" alt="tile5" class="tile" id="2x3tileNode5">
+						</div>
+						<div class="tableRow">
+							<img src="images/tile3.png" alt="tile3" class="tile" id="2x3tileNode3">
+							<img src="images/tile6.png" alt="tile6" class="tile" id="2x3tileNode6">
+						</div>
+
+						</div>	
+					</div>
  				
 					<div id="gameBoard3x3" class="tableContainer">
 						<div class="tableRow">
-							<img src="images/tile1.png" alt="tile1" class="tile" id="tileNode1">
-							<img src="images/tile4.png" alt="tile4" class="tile" id="tileNode4">
-							<img src="images/tile7.png" alt="tile7" class="tile" id="tileNode7">
+							<img src="images/tile1.png" alt="tile1" class="tile" id="3x3tileNode1">
+							<img src="images/tile4.png" alt="tile4" class="tile" id="3x3tileNode4">
+							<img src="images/tile7.png" alt="tile7" class="tile" id="3x3tileNode7">
 
 						<div class="tableRow">
-							<img src="images/tile2.png" alt="tile2" class="tile" id="tileNode2">
-							<img src="images/tile5.png" alt="tile5" class="tile" id="tileNode5">
-							<img src="images/tile8.png" alt="tile8" class="tile" id="tileNode8">
+							<img src="images/tile2.png" alt="tile2" class="tile" id="3x3tileNode2">
+							<img src="images/tile5.png" alt="tile5" class="tile" id="3x3tileNode5">
+							<img src="images/tile8.png" alt="tile8" class="tile" id="3x3tileNode8">
 						</div>
 						<div class="tableRow">
-							<img src="images/tile3.png" alt="tile3" class="tile" id="tileNode3">
-							<img src="images/tile6.png" alt="tile6" class="tile" id="tileNode6">
-							<img src="images/tile9.png" alt="tile9" class="tile" id="tileNode9">
+							<img src="images/tile3.png" alt="tile3" class="tile" id="3x3tileNode3">
+							<img src="images/tile6.png" alt="tile6" class="tile" id="3x3tileNode6">
+							<img src="images/tile9.png" alt="tile9" class="tile" id="3x3tileNode9">
 						</div>
 						</div>	
 					</div>
 				
 				
-					<div id="gameBoard4x4" class="tableContainer">
-						<div class="tableRow">
-							<img src="images/tile1.png" alt="tile1" class="tile" id="tileNode1">
-							<img src="images/tile5.png" alt="tile5" class="tile" id="tileNode5">
-							<img src="images/tile9.png" alt="tile9" class="tile" id="tileNode9">
-							<img src="images/tile13.png" alt="tile13" class="tile" id="tileNode13">
 
-						<div class="tableRow">
-							<img src="images/tile2.png" alt="tile2" class="tile" id="tileNode2">
-							<img src="images/tile6.png" alt="tile6" class="tile" id="tileNode6">
-							<img src="images/tile10.png" alt="tile10" class="tile" id="tileNode10">
-							<img src="images/tile14.png" alt="tile14" class="tile" id="tileNode14">
-						</div>
-						<div class="tableRow">
-							<img src="images/tile3.png" alt="tile3" class="tile" id="tileNode3">
-							<img src="images/tile7.png" alt="tile7" class="tile" id="tileNode7">
-							<img src="images/tile11.png" alt="tile11" class="tile" id="tileNode11">
-							<img src="images/tile15.png" alt="tile15" class="tile" id="tileNode15">
-						</div>
-							<div class="tableRow">
-							<img src="images/tile4.png" alt="tile4" class="tile" id="tileNode4">
-							<img src="images/tile8.png" alt="tile8" class="tile" id="tileNode8">
-							<img src="images/tile12.png" alt="tile12" class="tile" id="tileNode12">
-							<img src="images/tile16.png" alt="tile16" class="tile" id="tileNode16">
-						</div>
-						</div>	
-					</div>
 			
 			</div>
 	</div>
