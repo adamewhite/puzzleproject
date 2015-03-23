@@ -90,8 +90,6 @@ var tileSetup = function () {
 
 		shuffleTile(initialArray);
 
-		var untiledShuffled = initialArray;
-
 		if (gridsize == 4) {
 			initialArray = ("2x2tileNode" + initialArray.join('2x2tileNode')).split(/(?=2x2tileNode)/);
 			for (var i = 0; i < initialArray.length; i++) {
