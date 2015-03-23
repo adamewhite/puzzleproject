@@ -13,8 +13,6 @@
 
 			<img src="images/logocolor.png" alt="logo" id="logo"><br><br>
 
-
-
 		<!-- <div id="difficulty">
 			<fieldset>
 				<legend>Difficulty</legend>
@@ -32,44 +30,39 @@
 		<div id="custom">
 			<fieldset>
 
-<!-- 				<legend>Controls</legend> -->
-				<div class="menuOptions">
-				<label for="radio">Number Pad</label>
-				<input type="radio" name="controls" value="numberPad" checked="checked">
-				<label for="radio">Mouse</label>
-				<input type="radio" name="controls" value="mouse"><br>
-				</div>
-
+				
 				<span class="title">Speed:</span>
 				<div class="menuOptions" id="speedChoice">
-				<label for="radio">Slow</label>
-				<input type="radio" name="speed" value="slow" id="slow" checked="checked">
-				<label for="radio">Medium</label>
-				<input type="radio" name="speed" value="medium" id="medium">
-				<label for="radio">Fast</label>
-				<input type="radio" name="speed" value="fast" id="fast"><br>
+					<label for="radio">Slow</label>
+					<input type="radio" name="speed" value="slow" id="slow" checked="checked">
+					<label for="radio">Medium</label>
+					<input type="radio" name="speed" value="medium" id="medium">
+					<label for="radio">Fast</label>
+					<input type="radio" name="speed" value="fast" id="fast"><br>
 				</div>
 
 				<span class="title">Order:</span>
 				<div class="menuOptions" id="speedChoice">
-				<label for="radio">Sequential</label>
-				<input type="radio" name="order" value="sequential" id="sequential" checked="checked">
-				<label for="radio">Random</label>
-				<input type="radio" name="order" value="random" id="random">
+					<label for="radio">Sequential</label>
+					<input type="radio" name="order" value="sequential" id="sequential" checked="checked">
+					<label for="radio">Random</label>
+					<input type="radio" name="order" value="random" id="random">
 				<br>
 				</div>
 
 				<span class="title">Size:</span>
 				<div class="menuOptions">
-				<select name="size">
-					<option value="2x2" id="2x2" selected="selected">2 x 2</option>
-					<option value="2x3" id="2x3">2 x 3</option>
-					<option value="3x3" id="3x3">3 x 3</option>
-				</select>
-				</div><br><br>
+					<select name="size">
+						<option value="2x2" id="2x2" selected="selected">2 x 2</option>
+						<option value="2x3" id="2x3">2 x 3</option>
+						<option value="3x3" id="3x3">3 x 3</option>
+					</select>
+				</div>
 
-				<button type="button" class="button" name="letsBegin" id="letsBegin">Let's Begin</button>
-				<button type="button" class="button" name="resetGame" id="resetGame">Reset Game</button>
+				<div class="menuOptions">
+					<button type="button" class="button" name="letsBegin" id="letsBegin">Let's Begin</button>
+					<button type="button" class="button" name="resetGame" id="resetGame">Reset Game</button>
+				</div>
 
 			</fieldset>
 		</div>
@@ -78,11 +71,16 @@
 			<div class="tableRow">
 				<div id="gameConsole">
 					<br><br>
-					<span id="timer">&nbsp;</span>
+					<div id="timebox">
+						<span id="timer">&nbsp;</span>
+					</div>
 					<br><br>
-					<img src="images/tileBlank.png" alt="tileTemplate" id="tileTemplate"><br><br>
-					<input type="text" name="guess" maxlength="1"size="2" id="guess"><br><br>
-					<span id="verify">&nbsp;</span><br><br>
+					<img src="images/tileBlank.png" alt="tileTemplate" id="tileTemplate">
+					<br><br>
+					<input type="text" name="guess" maxlength="1"size="2" id="guess">
+					<br><br>
+					<span id="verify">&nbsp;</span>
+					<br><br>
 				</div>
 
 		
