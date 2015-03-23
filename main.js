@@ -11,8 +11,6 @@ var countdownTimer;
 var seconds;
 var gridsize = 0;
 var playOrder = [];
-var tileCorrespondent = 0;
-var boardSize;
 
 var tileSetup = function () {
 
