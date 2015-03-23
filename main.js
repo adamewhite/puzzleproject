@@ -62,7 +62,6 @@ var tileSetup = function () {
 		}
 		} else if (gridsize == 6) {
 			initialArray = ("2x3tileNode" + initialArray.join('2x3tileNode')).split(/(?=2x3tileNode)/);
-			console.log("initial 2x3 array: " + initialArray);
 			for (var i = 0; i < initialArray.length; i++) {
 				document.getElementById(initialArray[i]).src = "images/tile" + (i + 1) + ".png";
 		}
@@ -93,12 +92,6 @@ var tileSetup = function () {
 
 		var untiledShuffled = initialArray;
 
-		console.log("untiled shuffled: " + untiledShuffled);
-
-		// initialArray = ("2x3tileNode" + initialArray.join('2x3tileNode')).split(/(?=2x3tileNode)/);
-			
-		// console.log("initial 2x3 array: " + initialArray);
-
 		if (gridsize == 4) {
 			initialArray = ("2x2tileNode" + initialArray.join('2x2tileNode')).split(/(?=2x2tileNode)/);
 			for (var i = 0; i < initialArray.length; i++) {
@@ -106,7 +99,6 @@ var tileSetup = function () {
 		}
 		} else if (gridsize == 6) {
 			initialArray = ("2x3tileNode" + initialArray.join('2x3tileNode')).split(/(?=2x3tileNode)/);
-			console.log("initial 2x3 array: " + initialArray);
 			for (var i = 0; i < initialArray.length; i++) {
 				document.getElementById(initialArray[i]).src = "images/tile" + (i + 1) + ".png";
 		}
@@ -134,8 +126,6 @@ var tileSetup = function () {
 		}
 		}
 		
-		console.log("temp: " + temp);
-		
 		var temp2 = [];
 		
  		for (i = 0; i < temp.length; i++) {
@@ -143,15 +133,9 @@ var tileSetup = function () {
 		 } 
 	
 		playOrder = temp2;
-		
-		console.log("play order: " + playOrder);
 
 	}
 
-
-/* 	console.log("play order: " + playOrder); */
-/* 	console.log("removed character: " + x);
-	console.log("char at: " + y); */
 
 	tileSwitch();
 
@@ -207,11 +191,11 @@ var tileSwitch = function () {
 	document.getElementById("guess").focus();
 
 	if (document.getElementById("slow").checked) {
-		seconds = 90;
+		seconds = 100;
 	} else if (document.getElementById("medium").checked) {
-		seconds = 60;
+		seconds = 50;
 	} else {
-		seconds = 30;
+		seconds = 20;
 	}
 
 	countdownTimer = setInterval('secondPassed()', 100);
@@ -236,9 +220,6 @@ var gamePlay = function () {
 	document.getElementById("verify").firstChild.nodeValue = "";
 
 	var gameWon = false;
-
-	console.log("submitted guess: " + submittedGuess);
-	console.log(answerArray);
 	
 	if (submittedGuess != playOrder[tileNumber - 1]) {
 		gameOver();
@@ -263,12 +244,15 @@ var gamePlay = function () {
 				tileArray.push("tileNode" + i);
 			}
 
-			for (var i = 0; i < tileArray.length; i++) {
-				if (gridsize == 4) {
-
-					document.getElementsByClassName(tileArray[i]).src = "images/2x2images/game1/" + (i + 1) + ".jpg";
-				} 
-			}
+			// for (var i = 0; i < tileArray.length; i++) {
+			// 	if (gridsize == 4) {
+			// 		document.getElementsByClassName(tileArray[i]).src = "images/2x2images/game1/" + (i + 1) + ".jpg";
+			// 	} else if (gridsize == 6) {
+			// 		document.getElementsByClassName(tileArray[i]).src = "images/2x3images/game1/" + (i + 1) + ".jpg";
+			// 	} else if (gridsize == 9) {
+			// 		document.getElementsByClassName(tileArray[i]).src = "images/3x3images/game1/" + (i + 1) + ".jpg";
+			// 	} 
+			// }
 
 			
 			if (gridsize == 4) {
@@ -308,10 +292,6 @@ var gamePlay = function () {
 				tileNumber = randomNumber(1,gridsize);
 			} while ( answerArray[playOrder[tileNumber - 1] - 1] == true ) 
 
-
-			console.log("answer array: " + answerArray);
-			// console.log("tile number: " + tileNumber);
-
 			document.getElementById("guess").value = "";
 			document.getElementById("guess").focus();
 			tileSwitch();
@@ -336,8 +316,10 @@ var initializeGame = function () {
 	document.getElementById("letsBegin").disabled = false;
 	document.getElementById("guess").blur();
 	document.getElementById("verify").firstChild.nodeValue = "";
+	document.getElementById("timer").innerHTML = "";
 	clearInterval(countdownTimer);
 	gameWon = false;
+
 	}
 
 
