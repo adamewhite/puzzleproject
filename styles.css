@@ -129,10 +129,27 @@ div.menuOptions {
 	padding: 0;
 	width: 240px;
 	height: 240px;
+	position: absolute;
 }
 
+#gameBoard2x2 .image {
+	display: table-cell;
+	margin: 0;
+	padding: 0;
+	width: 240px;
+	height: 240px;
+}
 
 #gameBoard3x3 .tile {
+	display: table-cell;
+	margin: 0;
+	padding: 0;
+	width: 160px;
+	height: 160px;
+	position: absolute;
+}
+
+#gameBoard3x3 .image {
 	display: table-cell;
 	margin: 0;
 	padding: 0;
@@ -150,5 +167,21 @@ div.menuOptions {
 	padding: 0;
 	width: 160px;
 	height: 160px;
+	position: absolute;
 }
 
+#gameBoard2x3 .image {
+	display: table-cell;
+	margin: 0;
+	padding: 0;
+	width: 160px;
+	height: 160px;
+}
+
+/*#gameBoard2x2 .tableRow {
+	position: relative;
+}*/
+
+/*#gameBoard2x2 .tableRow img {
+	position: absolute;
+}*/
