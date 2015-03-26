@@ -1,6 +1,4 @@
 
-var $ = function(id) { return document.getElementById(id) };
-
 var randomNumber = function (min, max) {
 	return Math.floor ( Math.random() * ( max - min + 1 ) + min );
 }
@@ -11,8 +9,28 @@ var countdownTimer;
 var seconds;
 var gridsize = 0;
 var playOrder = [];
+var difficulty;
+
+
 
 var tileSetup = function () {
+
+	if (document.getElementById("easyDiff").selected) {
+		difficulty = 600;
+	} else if (document.getElementById("medDiff").selected) {
+		difficulty = 300;
+	} else if (document.getElementById("hardDiff").selected) {
+		difficulty = 100;
+	}
+
+	answerArray = [];
+
+	var answerArraySetup = function() {
+		for (var i = 0; i < gridsize; i++) {
+			answerArray.push(false);
+		}
+		return answerArray;
+	}
 
 	if (document.getElementById("2x2").selected) {
 		document.getElementById("gameBoard2x2").style.display = "block";
@@ -20,21 +38,21 @@ var tileSetup = function () {
 		document.getElementById("gameBoard3x3").style.display = "none";
 		gridsize = 4;
 		tileNumber = randomNumber (1,4)
-		answerArray = [false, false, false, false];
+		answerArraySetup();
 	} else if (document.getElementById("2x3").selected) {
 		document.getElementById("gameBoard2x3").style.display = "block";
 		document.getElementById("gameBoard3x3").style.display = "none";
 		document.getElementById("gameBoard2x2").style.display = "none";
 		gridsize = 6;
 		tileNumber = randomNumber (1,6)
-		answerArray = [false, false, false, false, false, false];
+		answerArraySetup();
 	} else if (document.getElementById("3x3").selected) {
 		document.getElementById("gameBoard3x3").style.display = "block";
 		document.getElementById("gameBoard2x3").style.display = "none";
 		document.getElementById("gameBoard2x2").style.display = "none";
 		gridsize = 9;
 		tileNumber = randomNumber (1,9)
-		answerArray = [false, false, false, false, false, false, false, false, false];
+		answerArraySetup();
 	}
 
 	var initialArray = [];
@@ -57,17 +75,55 @@ var tileSetup = function () {
 			initialArray = ("2x2tileNode" + initialArray.join('2x2tileNode')).split(/(?=2x2tileNode)/);
 			for (var i = 0; i < initialArray.length; i++) {
 				document.getElementById(initialArray[i]).src = "images/tile" + (i + 1) + ".png";
-		}
+			}
+			setTimeout((function () {$("#2x2tileNode1").fadeOut()}), 0)
+			setTimeout((function () {$("#2x2tileNode1").fadeIn()}), 1000)
+			setTimeout((function () {$("#2x2tileNode2").fadeOut()}), 200)
+			setTimeout((function () {$("#2x2tileNode2").fadeIn()}), 1200)
+			setTimeout((function () {$("#2x2tileNode3").fadeOut()}), 400);
+			setTimeout((function () {$("#2x2tileNode3").fadeIn()}), 1400);
+			setTimeout((function () {$("#2x2tileNode4").fadeOut()}), 600);
+			setTimeout((function () {$("#2x2tileNode4").fadeIn()}), 1600);
 		} else if (gridsize == 6) {
 			initialArray = ("2x3tileNode" + initialArray.join('2x3tileNode')).split(/(?=2x3tileNode)/);
 			for (var i = 0; i < initialArray.length; i++) {
 				document.getElementById(initialArray[i]).src = "images/tile" + (i + 1) + ".png";
-		}
+				}
+			setTimeout((function () {$("#2x3tileNode1").fadeOut()}), 0)
+			setTimeout((function () {$("#2x3tileNode1").fadeIn()}), 1000)
+			setTimeout((function () {$("#2x3tileNode2").fadeOut()}), 200)
+			setTimeout((function () {$("#2x3tileNode2").fadeIn()}), 1200)
+			setTimeout((function () {$("#2x3tileNode3").fadeOut()}), 400);
+			setTimeout((function () {$("#2x3tileNode3").fadeIn()}), 1400);
+			setTimeout((function () {$("#2x3tileNode4").fadeOut()}), 600);
+			setTimeout((function () {$("#2x3tileNode4").fadeIn()}), 1600);
+			setTimeout((function () {$("#2x3tileNode5").fadeOut()}), 800);
+			setTimeout((function () {$("#2x3tileNode5").fadeIn()}), 1800);
+			setTimeout((function () {$("#2x3tileNode6").fadeOut()}), 1000);
+			setTimeout((function () {$("#2x3tileNode6").fadeIn()}), 2000);
 		} else if (gridsize == 9) {
 			initialArray = ("3x3tileNode" + initialArray.join('3x3tileNode')).split(/(?=3x3tileNode)/);
 			for (var i = 0; i < initialArray.length; i++) {
 				document.getElementById(initialArray[i]).src = "images/tile" + (i + 1) + ".png";
 		}
+			setTimeout((function () {$("#3x3tileNode1").fadeOut()}), 0)
+			setTimeout((function () {$("#3x3tileNode1").fadeIn()}), 1000)
+			setTimeout((function () {$("#3x3tileNode2").fadeOut()}), 200)
+			setTimeout((function () {$("#3x3tileNode2").fadeIn()}), 1200)
+			setTimeout((function () {$("#3x3tileNode3").fadeOut()}), 400);
+			setTimeout((function () {$("#3x3tileNode3").fadeIn()}), 1400);
+			setTimeout((function () {$("#3x3tileNode4").fadeOut()}), 600);
+			setTimeout((function () {$("#3x3tileNode4").fadeIn()}), 1600);
+			setTimeout((function () {$("#3x3tileNode5").fadeOut()}), 800);
+			setTimeout((function () {$("#3x3tileNode5").fadeIn()}), 1800);
+			setTimeout((function () {$("#3x3tileNode6").fadeOut()}), 1000);
+			setTimeout((function () {$("#3x3tileNode6").fadeIn()}), 2000);
+			setTimeout((function () {$("#3x3tileNode7").fadeOut()}), 1200);
+			setTimeout((function () {$("#3x3tileNode7").fadeIn()}), 2200);
+			setTimeout((function () {$("#3x3tileNode8").fadeOut()}), 1400);
+			setTimeout((function () {$("#3x3tileNode8").fadeIn()}), 2400);
+			setTimeout((function () {$("#3x3tileNode9").fadeOut()}), 1600);
+			setTimeout((function () {$("#3x3tileNode9").fadeIn()}), 2600);
 		}
 
 	} else {
@@ -132,8 +188,14 @@ var tileSetup = function () {
 
 	}
 
+	if (gridsize == 4) {
+		setTimeout(tileSwitch, 1900)
+	} else if (gridsize == 6) {
+		setTimeout(tileSwitch, 2100)
+	} else if (gridsize == 9) {
+		setTimeout(tileSwitch, 2700)
+	}
 
-	tileSwitch();
 
 	}
 
@@ -252,29 +314,31 @@ var gamePlay = function () {
 
 			
 			if (gridsize == 4) {
-					document.getElementById("2x2tileNode1").src = "images/2x2images/game1/" + 1 + ".jpg";
-					document.getElementById("2x2tileNode2").src = "images/2x2images/game1/" + 2 + ".jpg";
-					document.getElementById("2x2tileNode3").src = "images/2x2images/game1/" + 3 + ".jpg";
-					document.getElementById("2x2tileNode4").src = "images/2x2images/game1/" + 4 + ".jpg";
+					$("#2x2tileNode1").fadeOut();
+					setTimeout((function () {$("#2x2tileNode2").fadeOut()}), 200);
+					setTimeout((function () {$("#2x2tileNode3").fadeOut()}), 400);
+					setTimeout((function () {$("#2x2tileNode4").fadeOut()}), 600);
+
 			} else if (gridsize == 6) {
-					document.getElementById("2x3tileNode1").src = "images/2x3images/game1/" + 1 + ".jpg";
-					document.getElementById("2x3tileNode2").src = "images/2x3images/game1/" + 2 + ".jpg";
-					document.getElementById("2x3tileNode3").src = "images/2x3images/game1/" + 3 + ".jpg";
-					document.getElementById("2x3tileNode4").src = "images/2x3images/game1/" + 4 + ".jpg";
-					document.getElementById("2x3tileNode5").src = "images/2x3images/game1/" + 5 + ".jpg";
-					document.getElementById("2x3tileNode6").src = "images/2x3images/game1/" + 6 + ".jpg";
+					$("#2x3tileNode1").fadeOut();
+					setTimeout((function () {$("#2x3tileNode2").fadeOut()}), 200);
+					setTimeout((function () {$("#2x3tileNode3").fadeOut()}), 400);
+					setTimeout((function () {$("#2x3tileNode4").fadeOut()}), 600);
+					setTimeout((function () {$("#2x3tileNode5").fadeOut()}), 800);
+					setTimeout((function () {$("#2x3tileNode6").fadeOut()}), 1000);
+
 			} else if (gridsize == 9) {
-					document.getElementById("3x3tileNode1").src = "images/3x3images/game1/" + 1 + ".jpg";
-					document.getElementById("3x3tileNode2").src = "images/3x3images/game1/" + 2 + ".jpg";
-					document.getElementById("3x3tileNode3").src = "images/3x3images/game1/" + 3 + ".jpg";
-					document.getElementById("3x3tileNode4").src = "images/3x3images/game1/" + 4 + ".jpg";
-					document.getElementById("3x3tileNode5").src = "images/3x3images/game1/" + 5 + ".jpg";
-					document.getElementById("3x3tileNode6").src = "images/3x3images/game1/" + 6 + ".jpg";
-					document.getElementById("3x3tileNode7").src = "images/3x3images/game1/" + 7 + ".jpg";
-					document.getElementById("3x3tileNode8").src = "images/3x3images/game1/" + 8 + ".jpg";
-					document.getElementById("3x3tileNode9").src = "images/3x3images/game1/" + 9 + ".jpg";
+					$("#3x3tileNode1").fadeOut();
+					setTimeout((function () {$("#3x3tileNode2").fadeOut()}), 200);
+					setTimeout((function () {$("#3x3tileNode3").fadeOut()}), 400);
+					setTimeout((function () {$("#3x3tileNode4").fadeOut()}), 600);
+					setTimeout((function () {$("#3x3tileNode5").fadeOut()}), 800);
+					setTimeout((function () {$("#3x3tileNode6").fadeOut()}), 1000);
+					setTimeout((function () {$("#3x3tileNode7").fadeOut()}), 1200);
+					setTimeout((function () {$("#3x3tileNode8").fadeOut()}), 1400);
+					setTimeout((function () {$("#3x3tileNode9").fadeOut()}), 1600);
+
 			}
-			
 
 			document.getElementById("tileTemplate").src = "images/youWon.png";
 			document.getElementById("letsBegin").disabled = true;
@@ -320,7 +384,7 @@ var initializeGame = function () {
 
 
 window.onload = function () {
-	$("letsBegin").onclick = tileSetup;
-	$("guess").onkeyup = gamePlay;
-	$("resetGame").onclick = initializeGame;
+	document.getElementById("letsBegin").onclick = tileSetup;
+	document.getElementById("guess").onkeyup = gamePlay;
+	document.getElementById("resetGame").onclick = initializeGame;
 }
