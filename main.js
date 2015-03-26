@@ -6,7 +6,7 @@ var randomNumber = function (min, max) {
 }
 
 var tileNumber = 0;
-var answerArray = []
+var answerArray = [];
 var countdownTimer;
 var seconds;
 var gridsize = 0;
