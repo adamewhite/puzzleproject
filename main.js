@@ -15,13 +15,15 @@ var difficulty;
 
 var tileSetup = function () {
 
-	if (document.getElementById("easyDiff").selected) {
-		difficulty = 600;
-	} else if (document.getElementById("medDiff").selected) {
-		difficulty = 300;
-	} else if (document.getElementById("hardDiff").selected) {
-		difficulty = 100;
-	}
+	document.getElementById("letsBegin").disabled = true;
+
+	// if (document.getElementById("easyDiff").selected) {
+	// 	difficulty = 600;
+	// } else if (document.getElementById("medDiff").selected) {
+	// 	difficulty = 300;
+	// } else if (document.getElementById("hardDiff").selected) {
+	// 	difficulty = 100;
+	// }
 
 	answerArray = [];
 
@@ -80,10 +82,10 @@ var tileSetup = function () {
 			setTimeout((function () {$("#2x2tileNode1").fadeIn()}), 1000)
 			setTimeout((function () {$("#2x2tileNode2").fadeOut()}), 200)
 			setTimeout((function () {$("#2x2tileNode2").fadeIn()}), 1200)
-			setTimeout((function () {$("#2x2tileNode3").fadeOut()}), 400);
-			setTimeout((function () {$("#2x2tileNode3").fadeIn()}), 1400);
-			setTimeout((function () {$("#2x2tileNode4").fadeOut()}), 600);
-			setTimeout((function () {$("#2x2tileNode4").fadeIn()}), 1600);
+			setTimeout((function () {$("#2x2tileNode3").fadeOut()}), 0);
+			setTimeout((function () {$("#2x2tileNode3").fadeIn()}), 1000);
+			setTimeout((function () {$("#2x2tileNode4").fadeOut()}), 200);
+			setTimeout((function () {$("#2x2tileNode4").fadeIn()}), 1200);
 		} else if (gridsize == 6) {
 			initialArray = ("2x3tileNode" + initialArray.join('2x3tileNode')).split(/(?=2x3tileNode)/);
 			for (var i = 0; i < initialArray.length; i++) {
@@ -95,12 +97,12 @@ var tileSetup = function () {
 			setTimeout((function () {$("#2x3tileNode2").fadeIn()}), 1200)
 			setTimeout((function () {$("#2x3tileNode3").fadeOut()}), 400);
 			setTimeout((function () {$("#2x3tileNode3").fadeIn()}), 1400);
-			setTimeout((function () {$("#2x3tileNode4").fadeOut()}), 600);
-			setTimeout((function () {$("#2x3tileNode4").fadeIn()}), 1600);
-			setTimeout((function () {$("#2x3tileNode5").fadeOut()}), 800);
-			setTimeout((function () {$("#2x3tileNode5").fadeIn()}), 1800);
-			setTimeout((function () {$("#2x3tileNode6").fadeOut()}), 1000);
-			setTimeout((function () {$("#2x3tileNode6").fadeIn()}), 2000);
+			setTimeout((function () {$("#2x3tileNode4").fadeOut()}), 0);
+			setTimeout((function () {$("#2x3tileNode4").fadeIn()}), 1000);
+			setTimeout((function () {$("#2x3tileNode5").fadeOut()}), 200);
+			setTimeout((function () {$("#2x3tileNode5").fadeIn()}), 1200);
+			setTimeout((function () {$("#2x3tileNode6").fadeOut()}), 400);
+			setTimeout((function () {$("#2x3tileNode6").fadeIn()}), 1400);
 		} else if (gridsize == 9) {
 			initialArray = ("3x3tileNode" + initialArray.join('3x3tileNode')).split(/(?=3x3tileNode)/);
 			for (var i = 0; i < initialArray.length; i++) {
@@ -112,18 +114,18 @@ var tileSetup = function () {
 			setTimeout((function () {$("#3x3tileNode2").fadeIn()}), 1200)
 			setTimeout((function () {$("#3x3tileNode3").fadeOut()}), 400);
 			setTimeout((function () {$("#3x3tileNode3").fadeIn()}), 1400);
-			setTimeout((function () {$("#3x3tileNode4").fadeOut()}), 600);
-			setTimeout((function () {$("#3x3tileNode4").fadeIn()}), 1600);
-			setTimeout((function () {$("#3x3tileNode5").fadeOut()}), 800);
-			setTimeout((function () {$("#3x3tileNode5").fadeIn()}), 1800);
-			setTimeout((function () {$("#3x3tileNode6").fadeOut()}), 1000);
-			setTimeout((function () {$("#3x3tileNode6").fadeIn()}), 2000);
-			setTimeout((function () {$("#3x3tileNode7").fadeOut()}), 1200);
-			setTimeout((function () {$("#3x3tileNode7").fadeIn()}), 2200);
-			setTimeout((function () {$("#3x3tileNode8").fadeOut()}), 1400);
-			setTimeout((function () {$("#3x3tileNode8").fadeIn()}), 2400);
-			setTimeout((function () {$("#3x3tileNode9").fadeOut()}), 1600);
-			setTimeout((function () {$("#3x3tileNode9").fadeIn()}), 2600);
+			setTimeout((function () {$("#3x3tileNode4").fadeOut()}), 0);
+			setTimeout((function () {$("#3x3tileNode4").fadeIn()}), 1000);
+			setTimeout((function () {$("#3x3tileNode5").fadeOut()}), 200);
+			setTimeout((function () {$("#3x3tileNode5").fadeIn()}), 1200);
+			setTimeout((function () {$("#3x3tileNode6").fadeOut()}), 400);
+			setTimeout((function () {$("#3x3tileNode6").fadeIn()}), 1400);
+			setTimeout((function () {$("#3x3tileNode7").fadeOut()}), 0);
+			setTimeout((function () {$("#3x3tileNode7").fadeIn()}), 1000);
+			setTimeout((function () {$("#3x3tileNode8").fadeOut()}), 200);
+			setTimeout((function () {$("#3x3tileNode8").fadeIn()}), 1200);
+			setTimeout((function () {$("#3x3tileNode9").fadeOut()}), 400);
+			setTimeout((function () {$("#3x3tileNode9").fadeIn()}), 1400);
 		}
 
 	} else {
@@ -161,6 +163,48 @@ var tileSetup = function () {
 		}
 		}
 
+		if (gridsize == 4) {
+			setTimeout((function () {$("#2x2tileNode1").fadeOut()}), 0)
+			setTimeout((function () {$("#2x2tileNode1").fadeIn()}), 1000)
+			setTimeout((function () {$("#2x2tileNode2").fadeOut()}), 200)
+			setTimeout((function () {$("#2x2tileNode2").fadeIn()}), 1200)
+			setTimeout((function () {$("#2x2tileNode3").fadeOut()}), 0);
+			setTimeout((function () {$("#2x2tileNode3").fadeIn()}), 1000);
+			setTimeout((function () {$("#2x2tileNode4").fadeOut()}), 200);
+			setTimeout((function () {$("#2x2tileNode4").fadeIn()}), 1200);
+		} else if (gridsize == 6) {
+			setTimeout((function () {$("#2x3tileNode1").fadeOut()}), 0)
+			setTimeout((function () {$("#2x3tileNode1").fadeIn()}), 1000)
+			setTimeout((function () {$("#2x3tileNode2").fadeOut()}), 200)
+			setTimeout((function () {$("#2x3tileNode2").fadeIn()}), 1200)
+			setTimeout((function () {$("#2x3tileNode3").fadeOut()}), 400);
+			setTimeout((function () {$("#2x3tileNode3").fadeIn()}), 1400);
+			setTimeout((function () {$("#2x3tileNode4").fadeOut()}), 0);
+			setTimeout((function () {$("#2x3tileNode4").fadeIn()}), 1000);
+			setTimeout((function () {$("#2x3tileNode5").fadeOut()}), 200);
+			setTimeout((function () {$("#2x3tileNode5").fadeIn()}), 1200);
+			setTimeout((function () {$("#2x3tileNode6").fadeOut()}), 400);
+			setTimeout((function () {$("#2x3tileNode6").fadeIn()}), 1400);
+		} else if (gridsize == 9) {
+			setTimeout((function () {$("#3x3tileNode1").fadeOut()}), 0)
+			setTimeout((function () {$("#3x3tileNode1").fadeIn()}), 1000)
+			setTimeout((function () {$("#3x3tileNode2").fadeOut()}), 200)
+			setTimeout((function () {$("#3x3tileNode2").fadeIn()}), 1200)
+			setTimeout((function () {$("#3x3tileNode3").fadeOut()}), 400);
+			setTimeout((function () {$("#3x3tileNode3").fadeIn()}), 1400);
+			setTimeout((function () {$("#3x3tileNode4").fadeOut()}), 0);
+			setTimeout((function () {$("#3x3tileNode4").fadeIn()}), 1000);
+			setTimeout((function () {$("#3x3tileNode5").fadeOut()}), 200);
+			setTimeout((function () {$("#3x3tileNode5").fadeIn()}), 1200);
+			setTimeout((function () {$("#3x3tileNode6").fadeOut()}), 400);
+			setTimeout((function () {$("#3x3tileNode6").fadeIn()}), 1400);
+			setTimeout((function () {$("#3x3tileNode7").fadeOut()}), 0);
+			setTimeout((function () {$("#3x3tileNode7").fadeIn()}), 1000);
+			setTimeout((function () {$("#3x3tileNode8").fadeOut()}), 200);
+			setTimeout((function () {$("#3x3tileNode8").fadeIn()}), 1200);
+			setTimeout((function () {$("#3x3tileNode9").fadeOut()}), 400);
+			setTimeout((function () {$("#3x3tileNode9").fadeIn()}), 1400);
+		}
 
 		var temp = [];
 
@@ -189,11 +233,11 @@ var tileSetup = function () {
 	}
 
 	if (gridsize == 4) {
-		setTimeout(tileSwitch, 1900)
+		setTimeout(tileSwitch, 1700)
 	} else if (gridsize == 6) {
-		setTimeout(tileSwitch, 2100)
+		setTimeout(tileSwitch, 2000)
 	} else if (gridsize == 9) {
-		setTimeout(tileSwitch, 2700)
+		setTimeout(tileSwitch, 2000)
 	}
 
 
@@ -379,6 +423,33 @@ var initializeGame = function () {
 	document.getElementById("timer").innerHTML = "";
 	clearInterval(countdownTimer);
 	gameWon = false;
+
+	if (gridsize == 4) {
+			$("#2x2tileNode1").fadeIn();
+			$("#2x2tileNode2").fadeIn();
+			$("#2x2tileNode3").fadeIn();
+			$("#2x2tileNode4").fadeIn();
+
+	} else if (gridsize == 6) {
+			$("#2x3tileNode1").fadeIn();
+			$("#2x3tileNode2").fadeIn();
+			$("#2x3tileNode3").fadeIn();
+			$("#2x3tileNode4").fadeIn();
+			$("#2x3tileNode5").fadeIn();
+			$("#2x3tileNode6").fadeIn();
+
+	} else if (gridsize == 9) {
+			$("#3x3tileNode1").fadeIn();
+			$("#3x3tileNode2").fadeIn();
+			$("#3x3tileNode3").fadeIn();
+			$("#3x3tileNode4").fadeIn();
+			$("#3x3tileNode5").fadeIn();
+			$("#3x3tileNode6").fadeIn();
+			$("#3x3tileNode7").fadeIn();
+			$("#3x3tileNode8").fadeIn();
+			$("#3x3tileNode9").fadeIn();
+
+	}
 
 	}
 
