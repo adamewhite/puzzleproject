@@ -123,6 +123,13 @@ div.menuOptions {
 	width: 480px;
 }
 
+.tableRow {
+	border-spacing: 0;
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+}
+
 #gameBoard2x2 .tile {
 	display: table-cell;
 	margin: 0;
